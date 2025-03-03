@@ -7,23 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header med navigering -->
-    <header>
-        <h1>Välkommen till min hemsida</h1>
-        <nav>
-            <ul>
-                <li><a href="#hem">Hem</a></li>
-                <li><a href="galleri.html">Galleri</a></li>
-                <li><a href="om.html">Om mig</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
     <!-- Hem-sektion -->
     <section id="hem">
         <h2>Välkommen till hemsidan!</h2>
-        <p>Här kan du hitta olika bilder och information om mig.</p>
+        <p>Här kan du hitta olika bilder och information om mig. <a href="galleri.html">Klicka här för att se mitt galleri.</a></p>
     </section>
 
 </body>

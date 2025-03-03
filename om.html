@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om mig</title>
+    <title>Om Mig</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header med navigering -->
-    <header>
-        <h1>Om mig</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Hem</a></li>
-                <li><a href="galleri.html">Galleri</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
     <!-- Om-sektion -->
     <section id="om">
-        <h2>Här kan du skriva om dig själv och varför du har skapat denna sida.</h2>
+        <h2>Om Mig</h2>
+        <p>Här kan du skriva om dig själv och varför du har skapat denna sida.</p>
     </section>
 
 </body>

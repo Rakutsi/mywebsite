@@ -8,16 +8,16 @@
 </head>
 <body>
 
-    <!-- Header med navigering -->
-    <header>
-        <h1>Galleri</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Hem</a></li>
-                <li><a href="om.html">Om mig</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
     <!-- Galleri-sektion -->
     <section id="galleri">
