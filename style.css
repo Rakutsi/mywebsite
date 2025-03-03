@@ -12,11 +12,45 @@ header {
     background: #333;
     color: white;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerar allt horisontellt */
+    justify-content: flex-start; /* Lägger innehåll längst upp */
 }
 
+/* Bildcontainern */
+.header-img-container {
+    display: flex;
+    align-items: center; /* Centrerar bilden vertikalt */
+    width: 100%; /* Gör så att containern sträcker sig över hela bredden */
+    margin-top: 20px; /* Lägger till avstånd mellan toppen och bilden */
+    position: absolute; /* Absolut positionering för att lägga bilden ovanpå texten */
+    top: 0; /* Placera bilden högst upp */
+    left: 50%; /* Centrerar bilden horisontellt */
+    transform: translateX(-50%); /* Finjustera för exakt centrering */
+}
+
+/* Bildens styling */
+.header-img {
+    width: 200px; /* Justera bildens storlek */
+    height: auto;
+    border-radius: 50%; /* Gör bilden rund */
+    margin-right: 20px; /* Lite avstånd mellan bild och text */
+}
+
+/* Header-text */
+.header-text {
+    text-align: center; /* Centrerar texten horisontellt */
+    width: 100%; /* Gör så att texten täcker hela bredden */
+    margin-top: 10px; /* Ger lite avstånd mellan text och bild */
+}
+
+/* Navigation (länkar) */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    text-align: center; /* Centrerar länkarna */
 }
 
 nav ul li {
@@ -28,11 +62,19 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 nav a:hover {
+    color: #ff6347; /* Rödaktig färg vid hover */
     text-decoration: underline;
 }
+
+
+
+
 
 /* Sektionerna */
 section {
@@ -56,16 +98,19 @@ section {
 }
 
 #galleri ul li a {
+    display: block;
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    background: #ddd;
-    padding: 10px;
-    border-radius: 5px;
+    color: #333; /* Tydlig färg för texten */
+    background: #e0e0e0; /* Bakgrundsfärg för länkarna */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 #galleri ul li a:hover {
-    background: #bbb;
+    background: #bbb; /* Ljusare bakgrund vid hover */
 }
 
 /* Styling för sektionen "Hem" */
@@ -78,4 +123,15 @@ section {
 
 #hem h2 {
     color: #333;
+}
+header .header-content {
+    display: flex;
+    align-items: center; /* Vertikal centrering av bild och text */
+    justify-content: flex-start; /* För att hålla bilden till vänster */
+    width: 100%; /* Gör så att innehållet får hela bredden */
+}
+
+header .header-text {
+    text-align: center; /* Centrera texten */
+    flex-grow: 1; /* Gör att texten växer för att ta upp all tillgänglig plats */
 }
