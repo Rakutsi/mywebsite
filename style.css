@@ -14,8 +14,9 @@ header {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrerar allt horisontellt */
+    align-items: center; /* Centrerar allting horisontellt */
     justify-content: flex-start; /* Lägger innehåll längst upp */
+    position: relative; /* Detta behövs för att z-index ska fungera korrekt */
 }
 
 /* Bildcontainern */
@@ -28,6 +29,7 @@ header {
     top: 0; /* Placera bilden högst upp */
     left: 50%; /* Centrerar bilden horisontellt */
     transform: translateX(-50%); /* Finjustera för exakt centrering */
+    z-index: 1; /* Bilden ligger bakom länkarna */
 }
 
 /* Bildens styling */
@@ -46,6 +48,11 @@ header {
 }
 
 /* Navigation (länkar) */
+nav {
+    position: relative;
+    z-index: 2; /* Gör att länkarna ligger ovanpå bilden */
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -71,10 +78,6 @@ nav a:hover {
     color: #ff6347; /* Rödaktig färg vid hover */
     text-decoration: underline;
 }
-
-
-
-
 
 /* Sektionerna */
 section {
@@ -124,6 +127,8 @@ section {
 #hem h2 {
     color: #333;
 }
+
+/* Header-content för att hålla bild och text i samma rad */
 header .header-content {
     display: flex;
     align-items: center; /* Vertikal centrering av bild och text */
@@ -131,6 +136,7 @@ header .header-content {
     width: 100%; /* Gör så att innehållet får hela bredden */
 }
 
+/* Header-text */
 header .header-text {
     text-align: center; /* Centrera texten */
     flex-grow: 1; /* Gör att texten växer för att ta upp all tillgänglig plats */
