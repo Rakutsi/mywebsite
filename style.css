@@ -30,6 +30,10 @@ nav a {
     font-size: 18px;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* Sektionerna */
 section {
     margin: 20px auto;
@@ -62,4 +66,16 @@ section {
 
 #galleri ul li a:hover {
     background: #bbb;
+}
+
+/* Styling för sektionen "Hem" */
+#hem {
+    background-color: #e0e0e0;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#hem h2 {
+    color: #333;
 }
