@@ -141,3 +141,29 @@ header .header-text {
     text-align: center; /* Centrera texten */
     flex-grow: 1; /* Gör att texten växer för att ta upp all tillgänglig plats */
 }
+@media (max-width: 768px) {
+    .header-img-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%; /* Gör bilden större */
+        max-width: 500px; /* Sätter en maxstorlek så att den inte blir för stor */
+        z-index: 0; /* Håller bilden i bakgrunden */
+        opacity: 0.3; /* Låg opacitet för att hålla texten tydlig */
+    }
+
+    .header-img-container img {
+        width: 100%; /* Anpassar sig efter containerns storlek */
+        height: auto;
+    }
+
+    .header-text {
+        position: relative;
+        z-index: 1; /* Ser till att texten ligger framför bilden */
+        color: white; /* Håller texten tydlig */
+    }
+}
+
+
+
