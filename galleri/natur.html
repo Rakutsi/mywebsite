@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natur</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Galleri-sektion för Natur -->
+    <section id="galleri-navigation">
+        <h2>Natur</h2>
+
+        <!-- Navigering till andra kategorier -->
+        <div class="category-navigation">
+            <ul>
+                <li><a href="stad.html">Stad</a></li>
+                <li><a href="redigerat.html">Redigerat</a></li>
+                <li><a href="spel.html">Spel</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Galleri-sektion för Natur (Google Drive-bilder) -->
+    <section id="galleri-bilder">
+        <h3>Naturbilder</h3>
+        <div id="natur-gallery" class="gallery"></div>
+    </section>
+
+
+
+
+    <!-- Ladda in JavaScript -->
+    <script src="../scripts.js"></script>
+
+      <!-- Popup för att visa större bilder -->
+    <div id="popup" class="popup" style="display: none;">
+    <span class="close" id="close-popup">&times;</span>
+    <img class="popup-img" src="" alt="Bild"> <!-- Ändra till class="popup-img" -->
+</div>
+</body>
+</html>

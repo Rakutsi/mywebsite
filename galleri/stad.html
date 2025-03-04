@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stad</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Galleri-sektion för Stad -->
+    <section id="galleri-navigation">
+        <h2>Stad</h2>
+
+        <!-- Navigering till andra kategorier -->
+        <div class="category-navigation">
+            <ul>
+                <li><a href="natur.html">Natur</a></li>
+                <li><a href="redigerat.html">Redigerat</a></li>
+                <li><a href="spel.html">Spel</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Galleri-sektion för Stad (bilder) -->
+    <section id="galleri-bilder">
+        <h3>Stadsbilder</h3>
+        <!-- Galleri med klickbara bilder -->
+        <div class="gallery">
+            <img src="bilder/stad/bild1.jpg" alt="Bild 1" class="gallery-img" data-large="bilder/stad/bild1_large.jpg">
+            <img src="bilder/stad/bild2.jpg" alt="Bild 2" class="gallery-img" data-large="bilder/stad/bild2_large.jpg">
+            <img src="bilder/stad/bild3.jpg" alt="Bild 3" class="gallery-img" data-large="bilder/stad/bild3_large.jpg">
+            <img src="bilder/stad/bild4.jpg" alt="Bild 4" class="gallery-img" data-large="bilder/stad/bild4_large.jpg">
+            <img src="bilder/stad/bild5.jpg" alt="Bild 5" class="gallery-img" data-large="bilder/stad/bild5_large.jpg">
+            <img src="bilder/stad/bild6.jpg" alt="Bild 6" class="gallery-img" data-large="bilder/stad/bild6_large.jpg">
+            <img src="bilder/stad/bild1.jpg" alt="Bild 1" class="gallery-img" data-large="bilder/stad/bild1_large.jpg">
+            <img src="bilder/stad/bild2.jpg" alt="Bild 2" class="gallery-img" data-large="bilder/stad/bild2_large.jpg">
+            <img src="bilder/stad/bild3.jpg" alt="Bild 3" class="gallery-img" data-large="bilder/stad/bild3_large.jpg">
+            <img src="bilder/stad/bild4.jpg" alt="Bild 4" class="gallery-img" data-large="bilder/stad/bild4_large.jpg">
+            <img src="bilder/stad/bild5.jpg" alt="Bild 5" class="gallery-img" data-large="bilder/stad/bild5_large.jpg">
+            <img src="bilder/stad/bild6.jpg" alt="Bild 6" class="gallery-img" data-large="bilder/stad/bild6_large.jpg">
+            
+            <!-- Lägg till fler bilder här -->
+        </div>
+    </section>
+
+    <!-- Popup-fönster -->
+    <div id="popup" class="popup">
+        <span class="close" id="close-popup">&times;</span>
+        <img class="popup-img" id="popup-img" src="" alt="Större bild">
+    </div>
+
+    <script src="../scripts.js"></script>
+</body>
+</html>

@@ -17,6 +17,7 @@ header {
     align-items: center; /* Centrerar allting horisontellt */
     justify-content: flex-start; /* Lägger innehåll längst upp */
     position: relative; /* Detta behövs för att z-index ska fungera korrekt */
+    z-index: 10;  /* Lägre än popupen */
 }
 
 /* Bildcontainern */
@@ -89,81 +90,170 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Länkar i galleriet */
-#galleri ul {
+/* Länkar i galleriet och kategori-navigation */
+#galleri ul,
+.category-navigation ul {
+    display: flex; /* För att ordna knapparna horisontellt */
+    justify-content: center; /* Centrerar knapparna */
+    padding: 0;
+    list-style: none;
+    flex-wrap: wrap; /* Gör så att knapparna bryts till nästa rad om det behövs */
+}
+
+#galleri ul li,
+.category-navigation li {
+    margin: 5px; /* Lägger till lite avstånd mellan knapparna */
+}
+
+#galleri ul li a,
+.category-navigation a {
+    display: inline-flex; /* Flexbox för att göra texten centrerad */
+    justify-content: center; /* Centrerar texten horisontellt */
+    align-items: center; /* Centrerar texten vertikalt */
+    text-decoration: none;
+    color: #333; /* Tydlig färg för texten */
+    background: #f0f0f0; /* Bakgrundsfärg för länkarna */
+    border-radius: 5px; /* Runda hörn */
+    padding: 10px 15px; /* Justerad padding */
+    text-align: center;
+    border: 1px solid #ccc; /* Kantfärg för knappar */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-width: 80px; /* Sätter en minsta bredd */
+    max-width: 250px; /* Sätter en maxbredd så knapparna inte blir för stora */
+}
+
+/* Hover-effekt för knappar */
+#galleri ul li a:hover,
+.category-navigation a:hover {
+    background: #333; /* Bakgrundsfärg vid hover */
+    color: white; /* Textfärg vid hover */
+}
+
+/* För mobillägen: Anpassa knapparna */
+@media (max-width: 768px) {
+    #galleri ul,
+    .category-navigation ul {
+        flex-direction: column; /* Gör knapparna vertikala istället för horisontella */
+        align-items: center; /* Centrerar knapparna */
+    }
+
+    #galleri ul li,
+    .category-navigation li {
+        width: 100%; /* Knapparna tar upp hela bredden */
+        text-align: center; /* Centrerar texten i varje knapp */
+        margin-bottom: 10px; /* Lägger till lite avstånd mellan knapparna */
+    }
+
+    #galleri ul li a,
+    .category-navigation a {
+        width: auto; /* Låter knapparna anpassa sig till innehållet */
+        min-width: 150px; /* Minsta bredd för att knapparna ska vara tillräckligt stora */
+    }
+}
+
+/* Galleri-navigering */
+.category-navigation {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.category-navigation ul {
+    list-style-type: none;
     padding: 0;
 }
 
-#galleri ul li {
-    list-style: none;
+.category-navigation li {
     display: inline-block;
     margin: 10px;
 }
 
-#galleri ul li a {
-    display: block;
+.category-navigation a {
+    font-size: 18px;
     text-decoration: none;
-    color: #333; /* Tydlig färg för texten */
-    background: #e0e0e0; /* Bakgrundsfärg för länkarna */
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-#galleri ul li a:hover {
-    background: #bbb; /* Ljusare bakgrund vid hover */
-}
-
-/* Styling för sektionen "Hem" */
-#hem {
-    background-color: #e0e0e0;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#hem h2 {
     color: #333;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header-content för att hålla bild och text i samma rad */
-header .header-content {
-    display: flex;
-    align-items: center; /* Vertikal centrering av bild och text */
-    justify-content: flex-start; /* För att hålla bilden till vänster */
-    width: 100%; /* Gör så att innehållet får hela bredden */
+.category-navigation a:hover {
+    background-color: #333;
+    color: white;
 }
 
-/* Header-text */
-header .header-text {
-    text-align: center; /* Centrera texten */
-    flex-grow: 1; /* Gör att texten växer för att ta upp all tillgänglig plats */
-}
-@media (max-width: 768px) {
-    .header-img-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%; /* Gör bilden större */
-        max-width: 500px; /* Sätter en maxstorlek så att den inte blir för stor */
-        z-index: 0; /* Håller bilden i bakgrunden */
-        opacity: 0.3; /* Låg opacitet för att hålla texten tydlig */
-    }
-
-    .header-img-container img {
-        width: 100%; /* Anpassar sig efter containerns storlek */
-        height: auto;
-    }
-
-    .header-text {
-        position: relative;
-        z-index: 1; /* Ser till att texten ligger framför bilden */
-        color: white; /* Håller texten tydlig */
-    }
+/* Galleri-sektion */
+#galleri-bilder {
+    margin-top: 20px;
+    padding: 20px;
 }
 
+/* Galleri */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
 
+/* Bilden i galleriet */
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer; /* Visar att bilden kan klickas på */
+    transition: transform 0.3s ease; /* Övergång vid hover */
+}
 
+/* Förstora bild vid hover */
+.gallery-img:hover {
+    transform: scale(1.05); /* Förstorar bilden när man hovrar över den */
+}
+
+/* Popup-stilar */
+.popup {
+    display: none; /* Dölj popupen från början */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Bakgrundsfärg med transparens */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;  /* Se till att popupen ligger ovanpå andra element */
+}
+
+/* Bilden i popupen */
+.popup-img {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain; /* Se till att hela bilden syns utan att förvrängas */
+    margin: auto;
+}
+
+/* Aktiverad popup */
+.popup.active {
+    display: flex; /* Gör popupen synlig */
+}
+
+/* Stäng-knapp */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}

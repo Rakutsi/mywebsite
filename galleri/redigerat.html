@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stad</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Inkludera headern via JavaScript -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('../header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <!-- Galleri-sektion för Stad -->
+    <section id="galleri-navigation">
+        <h2>Redigerat</h2>
+
+        <!-- Navigering till andra kategorier -->
+        <div class="category-navigation">
+            <ul>
+                <li><a href="stad.html">stad</a></li>
+                <li><a href="natur.html">Natur</a></li>
+                <li><a href="spel.html">Spel</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Galleri-sektion för Stad (bilder) -->
+    <section id="galleri-bilder">
+        <h3>Redigerade bilder</h3>
+        <!-- Galleri med bilder -->
+        <div class="gallery">
+            <img src="bilder/stad/bild1.jpg" alt="Bild 1">
+            <img src="bilder/stad/bild2.jpg" alt="Bild 2">
+            <img src="bilder/stad/bild3.jpg" alt="Bild 3">
+            <!-- Lägg till fler bilder här -->
+        </div>
+    </section>
+
+</body>
+</html>
