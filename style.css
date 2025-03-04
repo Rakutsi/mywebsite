@@ -257,3 +257,51 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+/* För mobillägen: Anpassa headerbilden att ligga bakom texten */
+@media (max-width: 768px) {
+    /* Header-styling */
+    header {
+        background: #333;
+        color: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centrerar allting horisontellt */
+        justify-content: flex-start; /* Lägger innehåll längst upp */
+        position: relative; /* Behövs för z-index */
+        z-index: 10;
+    }
+
+    /* Bildcontainern */
+    .header-img-container {
+        display: flex;
+        justify-content: center; /* Centrerar bilden horisontellt */
+        align-items: center; /* Centrerar bilden vertikalt */
+        width: 100%; /* Gör så att containern sträcker sig över hela bredden */
+        height: 100%; /* Gör så att bilden täcker hela höjden */
+        position: absolute; /* Absolut positionering för att lägga bilden bakom texten */
+        top: 0; /* Placera bilden högst upp */
+        left: 50%; /* Centrerar bilden horisontellt */
+        transform: translateX(-50%); /* Finjustera för exakt centrering */
+        z-index: 1; /* Bilden ligger bakom texten */
+    }
+
+    /* Bildens styling */
+    .header-img {
+        width: 350px; /* Justera bildens storlek */
+        height: auto;
+        border-radius: 50%; /* Gör bilden rund */
+        margin-right: 20px; /* Lite avstånd mellan bild och text */
+        opacity: 0.6; /* Gör bilden lite genomskinlig så att texten syns bättre */
+    }
+
+    /* Header-text */
+    .header-text {
+        text-align: center; /* Centrerar texten horisontellt */
+        width: 100%; /* Gör så att texten täcker hela bredden */
+        margin-top: 10px; /* Ger lite avstånd mellan text och bild */
+        position: relative; /* Behåller texten ovanpå bilden */
+        z-index: 2;  /* Gör så att texten ligger framför bilden */
+    }
+}
+
