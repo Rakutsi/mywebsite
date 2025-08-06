@@ -1,70 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const gallery = document.getElementById("spel-gallery");
-  const popup = document.getElementById("popup");
-  const popupImg = document.getElementById("popup-img");
-  const closeBtn = document.getElementById("close-popup");
+  <!-- Navigering -->
+  <section id="galleri-navigation">
+    <h2>Galleri – Spel</h2>
+    <div class="category-navigation">
+      <ul>
+        <li><a href="stad.html">Stad</a></li>
+        <li><a href="natur.html">Natur</a></li>
+        <li><a href="redigerat.html">Redigerat</a></li>
+      </ul>
+    </div>
+  </section>
 
-  const folderId = "1K2BewZlayhDCKmcxPyv83Jf9J3PtnQso"; // ← din Google Drive-mapp
-  const apiKey = "AIzaSyBxxvWGKXgAhH6HQMtREAGkZSMebtvr5jk"; // ← din API-nyckel
+  <!-- Gallerisektion -->
+  <section id="galleri-bilder">
+    <h3>Spelbilder från Google Drive</h3>
+    <div class="gallery" id="spel-gallery"></div>
+  </section>
 
-  // Öppna popup med bild
-  function openPopup(imageSrc) {
-    const img = new Image();
-    img.src = imageSrc;
-    img.onload = function () {
-      popupImg.src = imageSrc;
-      popup.classList.add("active");
-    };
-    img.onerror = function () {
-      console.error("Kunde inte ladda bilden: " + imageSrc);
-    };
-  }
+  <!-- Popup-fönster -->
+  <div id="popup" class="popup">
+    <span class="close" id="close-popup">&times;</span>
+    <img class="popup-img" id="popup-img" src="" alt="Större bild" />
+  </div>
 
-  // Hämta bilder från Google Drive
-  async function fetchDriveImages() {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}&fields=files(id,name,mimeType)`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      if (!data.files || data.files.length === 0) {
-        console.error("Inga filer hittades i mappen.");
-        return;
-      }
-
-      gallery.innerHTML = "";
-
-      data.files.forEach(file => {
-        if (file.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
-          const img = document.createElement("img");
-          img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
-          img.alt = file.name;
-          img.classList.add("gallery-img");
-
-          img.addEventListener("click", () => {
-            openPopup(img.src);
-          });
-
-          gallery.appendChild(img);
-        }
-      });
-    } catch (error) {
-      console.error("Fel vid hämtning av bilder:", error);
-    }
-  }
-
-  // Stäng popup
-  closeBtn.addEventListener("click", () => {
-    popup.classList.remove("active");
-  });
-
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      popup.classList.remove("active");
-    }
-  });
-
-  // Starta
-  fetchDriveImages();
-});
+  <!-- JavaScript -->
+  <script src="../scripts.js"></script>
+</body>
+</html>
