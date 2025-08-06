@@ -68,7 +68,7 @@
             img.alt = file.name;
             img.classList.add("gallery-img");
 
-            img.onclick = () => openPopup(`https://drive.google.com/uc?id=${file.id}`);
+            img.onclick = () => openPopup(`https://drive.google.com/uc?export=view&id=${file.id}`);
             gallery.appendChild(img);
           }
         });
@@ -103,3 +103,4 @@
   </script>
 </body>
 </html>
+
